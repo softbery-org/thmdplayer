@@ -1,0 +1,21 @@
+﻿<Window x:Class="ThmdPlayer.windows.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThmdPlayer.windows"
+        mc:Ignorable="d"
+        Title="EditorWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="_inputTextBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="open file path for edit" VerticalAlignment="Top" Width="700" Height="34" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold" ToolTip="Open video file path"/>
+        <Button x:Name="_btnOpen" Content="..." HorizontalAlignment="Left" Margin="725,10,0,0" VerticalAlignment="Top" Height="34" Width="65" FontWeight="Bold" FontSize="20" Click="_btnOpen_Click"/>
+        <Button x:Name="_btnCut" Content="Cut" HorizontalAlignment="Left" Margin="260,88,0,0" VerticalAlignment="Top" Height="36" Width="65" FontWeight="Bold" FontSize="20" Click="_btnCut_Click"/>
+        <TextBox x:Name="_outputTextBox" HorizontalAlignment="Center" Margin="0,49,0,0" TextWrapping="Wrap" Text="output file path" VerticalAlignment="Top" Width="780" FontSize="16" FontWeight="Bold" Height="34" VerticalContentAlignment="Center" ToolTip="Output file path"/>
+        <TextBox x:Name="_startTimeTextBox" HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap" Text="from" VerticalAlignment="Top" Width="120" FontSize="16" FontWeight="Bold" Height="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ToolTip="Set start time"/>
+        <TextBox x:Name="_endTimeTextBox" HorizontalAlignment="Left" Margin="135,88,0,0" TextWrapping="Wrap" Text="to" VerticalAlignment="Top" Width="120" FontSize="16" FontWeight="Bold" Height="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" ToolTip="Set end time"/>
+        <StatusBar Margin="0,409,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+            <ProgressBar Height="10" Width="100" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" UseLayoutRounding="False"/>
+        </StatusBar>
+
+    </Grid>
+</Window>

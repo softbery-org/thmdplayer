@@ -83,6 +83,13 @@ namespace ThmdPlayer.windows
                 infoWindow.Owner = this;
                 infoWindow.ShowDialog();
             };
+
+            _player.ControlBar.BtnVideoEditor.Click += (s, e) =>
+            {
+                var videoEditorWindow = new EditorWindow(_player.Media.Uri);
+                videoEditorWindow.Owner = this;
+                videoEditorWindow.Show();
+            };
         }
 
         private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)

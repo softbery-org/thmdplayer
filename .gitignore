@@ -3,6 +3,9 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+# softbery version file
+*.sbver*
+
 # dotenv files
 .env
 
