@@ -10,12 +10,13 @@
         <Button x:Name="_btnSave" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="55" Height="40" Click="_btnSave_Click" Margin="0,0,15,15"/>
         <Button x:Name="_btnCancel" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="40" Width="55" Click="_btnCancel_Click" Margin="0,0,75,15"/>
         <Label Content="Font:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="_fontsListComboBox" HorizontalAlignment="Left" Margin="51,12,0,0" VerticalAlignment="Top" Width="189"/>
+        <ComboBox x:Name="_fontsListComboBox" HorizontalAlignment="Left" Margin="51,12,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="_fontsListComboBox_SelectionChanged"/>
         <Label Content="Size:" HorizontalAlignment="Left" Margin="13,34,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="_fontSizeTextBox" HorizontalAlignment="Left" Margin="52,38,0,0" TextWrapping="Wrap" Text="24" VerticalAlignment="Top" Width="43" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <Label Content="Color:" HorizontalAlignment="Left" Height="23" Margin="5,65,0,0" VerticalAlignment="Top" Width="42"/>
         <CheckBox x:Name="_shadowSubtitleCheckBox" Content="Shadow" HorizontalAlignment="Left" Margin="13,93,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="_shortcutsTabIt1emListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="13,124,612,10"/>
+        <TextBlock x:Name="_test" HorizontalAlignment="Left" Margin="193,124,0,0" TextWrapping="Wrap" Text="TextBlock for test font family łżuń" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="150"/>
 
     </Grid>
 </Window>

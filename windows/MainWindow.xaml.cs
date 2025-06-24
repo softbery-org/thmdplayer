@@ -47,11 +47,11 @@ namespace ThmdPlayer.windows
                 c.Children.Add(_player);
             }
 
-            _player.PlaylistView.SetGridColumns(new string[] { "Duration", "Name", "Position" });
+            _player.PlaylistView.SetGridColumns(new string[] { "Duration", "Name", "CurrentTime" });
             _player.PlaylistView.Add(new Core.medias.Media("F:/Filmy/A Minecraft Movie/Minecraft Film A Minecraft Movie 2025 - Filman cc - Filmy i Seri.mp4"), _player);
             _player.PlaylistView.Add(new Core.medias.Media("F:/Filmy/Dziki robot - The.Wild.Robot.2024.Pldub.Md.360P.Amzn.Web-Dl.H.265.Dd2.0-Fox.mkv.AVI", _player));
             _player.PlaylistView.Add(new Core.medias.Media("rtsp://admin:BHVZSL@192.168.88.243/h264_stream"), _player);
-            
+            _player.SubtitleControl.FilePath = "F:/Filmy/Futurama/Futurama S07E26 PL 720p.srt";
             //_player.Playlist.Add(new Core.medias.Media("https://luluvdo.com/e/036u92ask61z"), _player);
 
             _player.Play();

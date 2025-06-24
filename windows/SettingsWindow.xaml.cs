@@ -36,9 +36,9 @@ namespace ThmdPlayer.windows
             {
                 _player = player;
 
-                _player.SubtitleControl.SubtitleSize = App.Config.SubtitleConfig.FontSize;
+                _player.SubtitleControl.FontSize = App.Config.SubtitleConfig.FontSize;
                 _player.SubtitleControl.FontFamily = App.Config.SubtitleConfig.FontFamily;
-                _player.SubtitleControl.SubtitleShadow = App.Config.SubtitleConfig.ShadowSubtitle;
+                _player.SubtitleControl.Shadow = App.Config.SubtitleConfig.ShadowSubtitle;
             }
         }
 
@@ -51,11 +51,13 @@ namespace ThmdPlayer.windows
         {
             if (_player != null)
             {
-                _player.SubtitleControl.SubtitleSize = double.Parse(_fontSizeTextBox.Text);
+                _player.SubtitleControl.FontSize = double.Parse(_fontSizeTextBox.Text);
                 _player.SubtitleControl.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
-                _player.SubtitleControl.SubtitleShadow = _shadowSubtitleCheckBox.IsChecked == true;
+                _player.SubtitleControl.Shadow = _shadowSubtitleCheckBox.IsChecked == true;
 
-                _player.SubtitleControl.UpdateSubtitleStyle();
+                _player.SubtitleControl.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
+                /*_player.SubtitleControl.UpdateSubtitleStyle();
+                _player.SubtitleControl.SetSubtitleFontFamily((FontFamily)_fontsListComboBox.SelectedItem);*/
             }
 
             // Config
@@ -63,6 +65,13 @@ namespace ThmdPlayer.windows
             App.Config.SubtitleConfig.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
             App.Config.SubtitleConfig.ShadowSubtitle = _shadowSubtitleCheckBox.IsChecked == true;
             App.Config.SaveToFile("config.json");
+
+            this.Close();
+        }
+
+        private void _fontsListComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _test.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
         }
     }
 }
