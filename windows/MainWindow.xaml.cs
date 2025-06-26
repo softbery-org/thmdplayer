@@ -47,7 +47,7 @@ namespace ThmdPlayer.windows
                 c.Children.Add(_player);
             }
 
-            _player.PlaylistView.SetGridColumns(new string[] { "Duration", "Name", "CurrentTime" });
+            _player.PlaylistView.SetGridColumns(new string[] { "Duration", "Name", "Position" });
             _player.PlaylistView.Add(new Core.medias.Media("F:/Filmy/A Minecraft Movie/Minecraft Film A Minecraft Movie 2025 - Filman cc - Filmy i Seri.mp4"), _player);
             _player.PlaylistView.Add(new Core.medias.Media("F:/Filmy/Dziki robot - The.Wild.Robot.2024.Pldub.Md.360P.Amzn.Web-Dl.H.265.Dd2.0-Fox.mkv.AVI", _player));
             _player.PlaylistView.Add(new Core.medias.Media("rtsp://admin:BHVZSL@192.168.88.243/h264_stream"), _player);

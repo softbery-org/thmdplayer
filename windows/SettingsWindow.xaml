@@ -1,9 +1,10 @@
-﻿<Window x:Class="ThmdPlayer.windows.SettingsWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThmdPlayer"
+        xmlns:controls="clr-namespace:ThmdPlayer.Core.controls;assembly=ThmdPlayer.Core" x:Class="ThmdPlayer.windows.SettingsWindow"
         mc:Ignorable="d"
         Title="SettingsWindow" Height="450" Width="800">
     <Grid>
@@ -14,9 +15,19 @@
         <Label Content="Size:" HorizontalAlignment="Left" Margin="13,34,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="_fontSizeTextBox" HorizontalAlignment="Left" Margin="52,38,0,0" TextWrapping="Wrap" Text="24" VerticalAlignment="Top" Width="43" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <Label Content="Color:" HorizontalAlignment="Left" Height="23" Margin="5,65,0,0" VerticalAlignment="Top" Width="42"/>
-        <CheckBox x:Name="_shadowSubtitleCheckBox" Content="Shadow" HorizontalAlignment="Left" Margin="13,93,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="_shadowSubtitleCheckBox" Content="Shadow" HorizontalAlignment="Left" Margin="258,15,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="_shortcutsTabIt1emListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="13,124,612,10"/>
-        <TextBlock x:Name="_test" HorizontalAlignment="Left" Margin="193,124,0,0" TextWrapping="Wrap" Text="TextBlock for test font family łżuń" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="150"/>
+        <TextBlock x:Name="_test" HorizontalAlignment="Left" Margin="188,284,0,0" TextWrapping="Wrap" Text="TextBlock for test font family łżuń" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="70"/>
+        <TextBox HorizontalAlignment="Left" Margin="355,42,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Blur radius:" HorizontalAlignment="Left" Margin="258,38,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="355,70,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Shadow Depth:" HorizontalAlignment="Left" Margin="259,63,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="355,94,0,0" TextWrapping="Wrap" Text="0.5" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Opacity:" HorizontalAlignment="Left" Margin="259,89,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="_shadowColor" HorizontalAlignment="Left" Margin="355,120,0,0" TextWrapping="Wrap" Text="000000" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Shadow color:" HorizontalAlignment="Left" Margin="259,115,0,0" VerticalAlignment="Top"/>
+
+        <controls:ColorPicker x:Name="_colorPicker" HorizontalAlignment="Left" Margin="491,0,0,0" VerticalAlignment="Top" Height="289" Width="309"/>
 
     </Grid>
 </Window>

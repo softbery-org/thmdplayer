@@ -14,7 +14,7 @@ namespace ThmdPlayer.windows
     /// </summary>
     public partial class SettingsWindow : Window
     {
-        private IPlayer _player;
+        private IPlayer _player = new Player();
 
         public IPlayer Player { get => _player; set => _player = value; }
 
@@ -25,21 +25,16 @@ namespace ThmdPlayer.windows
             _fontsListComboBox.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source).ToList();
             _fontsListComboBox.SelectedItem = App.Config.SubtitleConfig.FontFamily;
             _fontSizeTextBox.Text = App.Config.SubtitleConfig.FontSize.ToString();//_player.SubtitleControl.FontSize.ToString();
-            _shadowSubtitleCheckBox.IsChecked = App.Config.SubtitleConfig.ShadowSubtitle;
+            _shadowSubtitleCheckBox.IsChecked = App.Config.SubtitleConfig.Shadow.Visible;
         }
 
         public SettingsWindow(IPlayer player) : this()
         {
-            InitializeComponent();
+            _player = player;
 
-            if (_player != null)
-            {
-                _player = player;
-
-                _player.SubtitleControl.FontSize = App.Config.SubtitleConfig.FontSize;
-                _player.SubtitleControl.FontFamily = App.Config.SubtitleConfig.FontFamily;
-                _player.SubtitleControl.Shadow = App.Config.SubtitleConfig.ShadowSubtitle;
-            }
+            _player.SubtitleControl.FontSize = App.Config.SubtitleConfig.FontSize;
+            _player.SubtitleControl.FontFamily = App.Config.SubtitleConfig.FontFamily;
+            _player.SubtitleControl.ShowShadow = App.Config.SubtitleConfig.Shadow.Visible;
         }
 
         private void _btnCancel_Click(object sender, RoutedEventArgs e)
@@ -49,29 +44,36 @@ namespace ThmdPlayer.windows
 
         private void _btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (_player != null)
-            {
-                _player.SubtitleControl.FontSize = double.Parse(_fontSizeTextBox.Text);
-                _player.SubtitleControl.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
-                _player.SubtitleControl.Shadow = _shadowSubtitleCheckBox.IsChecked == true;
-
-                _player.SubtitleControl.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
-                /*_player.SubtitleControl.UpdateSubtitleStyle();
-                _player.SubtitleControl.SetSubtitleFontFamily((FontFamily)_fontsListComboBox.SelectedItem);*/
-            }
+            var p = _player as Player;
+            p.SubtitleControl.FontSize = double.Parse(_fontSizeTextBox.Text);
+            p.SubtitleControl.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
+            p.SubtitleControl.ShowShadow = _shadowSubtitleCheckBox.IsChecked == true;
 
             // Config
             App.Config.SubtitleConfig.FontSize = double.Parse(_fontSizeTextBox.Text);
             App.Config.SubtitleConfig.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
-            App.Config.SubtitleConfig.ShadowSubtitle = _shadowSubtitleCheckBox.IsChecked == true;
+            App.Config.SubtitleConfig.Shadow.Visible = _shadowSubtitleCheckBox.IsChecked == true;
             App.Config.SaveToFile("config.json");
 
-            this.Close();
+            p.SubtitleControl.UpdateSubtitleStyle();
         }
 
         private void _fontsListComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _test.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
+
+            var p = _player as Player;
+
+            p.SubtitleControl.FontSize = double.Parse(_fontSizeTextBox.Text);
+            p.SubtitleControl.FontFamily = (FontFamily)_fontsListComboBox.SelectedItem;
+            p.SubtitleControl.ShowShadow = _shadowSubtitleCheckBox.IsChecked == true;
+
+            p.SubtitleControl.UpdateSubtitleStyle();
+        }
+
+        private void ColorPicker_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            _shadowColor.Text = _colorPicker.Selected.Hex();
         }
     }
 }
