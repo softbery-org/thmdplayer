@@ -1,0 +1,3 @@
+[submodule "thmdplayer.core"]
+	path = thmdplayer.core
+	url = https://github.com/softbery-org/thmdplayer.core
