@@ -104,6 +104,9 @@
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="windows\SpectrumWindow.xaml.cs">
+      <DependentUpon>SpectrumWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="windows\AboutWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +148,10 @@
     <Page Include="windows\UpdateWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="windows\SpectrumWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +224,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="NAudio">
+      <Version>2.2.1</Version>
+    </PackageReference>
     <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
     <PackageReference Include="VideoLAN.LibVLC.Windows">
       <Version>3.0.21</Version>

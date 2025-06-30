@@ -22,6 +22,7 @@ namespace ThmdPlayer.windows
         private ThmdPlayer.Core.controls.Player _player;
         private CancellationToken cancellationTokenSource = new CancellationToken(false);
         private Rectangle _shortcutsTab;
+        private Canvas _spectrumCanvas;
 
         public MainWindow()
         {
@@ -30,6 +31,14 @@ namespace ThmdPlayer.windows
             _shortcutsTab = new Rectangle
             {
                 Fill = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)), // Transparentny czarny ustawiono w aRGB: przeŸroczystoœæ: 32%; rgb: 0,0,0 czerñ
+                Width = 200,
+                Height = 200,
+                Visibility = Visibility.Collapsed
+            };
+
+            _spectrumCanvas = new Canvas
+            {
+                Background = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)), // Transparentny czarny ustawiono w aRGB: przeŸroczystoœæ: 32%; rgb: 0,0,0 czerñ
                 Width = 200,
                 Height = 200,
                 Visibility = Visibility.Collapsed
@@ -178,6 +187,54 @@ namespace ThmdPlayer.windows
             if (e.Key == Key.Left)
             {
                 _player.Seek(TimeSpan.FromSeconds(5), Core.medias.SeekDirection.Backward);
+            }
+            if (e.Key == Key.Space)
+            {
+                if (_player.IsPlaying)
+                {
+                    _player.Pause();
+                }
+                else
+                {
+                    _player.Play();
+                }
+            }
+            if (e.Key == Key.OemPlus || e.Key == Key.Add)
+            {
+                _player.Volume += 0.1;
+            }
+            if (e.Key == Key.OemMinus || e.Key == Key.Subtract)
+            {
+                _player.Volume -= 0.1;
+            }
+            if (e.Key == Key.OemComma || e.Key == Key.OemPeriod)
+            {
+                if (_player.PlaylistView.Visibility == Visibility.Visible)
+                {
+                    _player.PlaylistView.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    _player.PlaylistView.Visibility = Visibility.Visible;
+                }
+            }
+            if (e.Key == Key.OemQuestion || e.Key == Key.F1)
+            {
+                if (_shortcutsTab.Visibility == Visibility.Visible)
+                    _shortcutsTab.Visibility = Visibility.Collapsed;
+                else
+                    _shortcutsTab.Visibility = Visibility.Visible;
+            }
+            if (e.Key == Key.S)
+            {
+                if (_player.SpectrumControl.Visibility == Visibility.Visible)
+                {
+                    _player.SpectrumControl.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    _player.SpectrumControl.Visibility = Visibility.Visible;
+                }
             }
         }
     }
