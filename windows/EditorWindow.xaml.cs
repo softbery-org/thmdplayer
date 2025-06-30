@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+// Version: 0.1.0.0
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ThmdPlayer.Core;
+using ThmdPlayer.Core.logs;
 using ThmdPlayer.Core.medias;
 
 namespace ThmdPlayer.windows
@@ -60,12 +62,12 @@ namespace ThmdPlayer.windows
             if (cut)
             {
                 MessageBox.Show("Video cut successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                Logger.Log.Log(Core.Logs.LogLevel.Info, new string[] { "File", "Console" }, $"Video cut successfully: {_outputTextBox.Text}");
+                Logger.Log.Log(LogLevel.Info, new string[] { "File", "Console" }, $"Video cut successfully: {_outputTextBox.Text}");
             }
             else
             {
                 MessageBox.Show("Failed to cut video.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                Logger.Log.Log(Core.Logs.LogLevel.Error, new string[] { "File", "Console" }, $"Failed to cut video: {_outputTextBox.Text}");
+                Logger.Log.Log(LogLevel.Error, new string[] { "File", "Console" }, $"Failed to cut video: {_outputTextBox.Text}");
             }
         }
 

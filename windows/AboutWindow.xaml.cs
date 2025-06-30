@@ -1,4 +1,4 @@
-// Version: 1.0.0.100
+// Version: 1.0.0.101
 using System.Windows;
 using System.Windows.Media;
 using ThmdPlayer.Core.images.svg;

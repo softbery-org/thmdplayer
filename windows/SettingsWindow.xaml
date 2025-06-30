@@ -26,8 +26,6 @@
         <Label Content="Opacity:" HorizontalAlignment="Left" Margin="259,89,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="_shadowColor" HorizontalAlignment="Left" Margin="355,120,0,0" TextWrapping="Wrap" Text="000000" VerticalAlignment="Top" Width="120"/>
         <Label Content="Shadow color:" HorizontalAlignment="Left" Margin="259,115,0,0" VerticalAlignment="Top"/>
-
-        <controls:ColorPicker x:Name="_colorPicker" HorizontalAlignment="Left" Margin="491,0,0,0" VerticalAlignment="Top" Height="289" Width="309"/>
-
+        <controls:ColorPicker x:Name="_colorPicker" HorizontalAlignment="Left" Margin="480,0,0,0" VerticalAlignment="Top" Height="304" Width="320"/>
     </Grid>
 </Window>

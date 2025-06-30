@@ -1,4 +1,4 @@
-// Version: 1.0.0.135
+// Version: 1.0.0.136
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ThmdPlayer.Core;
+using ThmdPlayer.Core.logs;
 
 namespace ThmdPlayer.windows
 {
@@ -29,7 +31,7 @@ namespace ThmdPlayer.windows
         {
             using (var updater = new Core.Updates.Updater("http://thmdplayer.softbery.org/version.txt"))
             {
-                updater.UpdateAvailable += (s, ex) => App.AddLog(Core.Logs.LogLevel.Warning, $"New version available: {ex.NewVersion}");
+                updater.UpdateAvailable += (s, ex) => Logger.Log.Log(LogLevel.Warning, new string[] { "File", "Console" }, $"New version available: {ex.NewVersion}");
                 updater.ProgressChanged += (s, ex) =>
                 {
                     Console.WriteLine($"Progress: {ex.ProgressPercentage}%");

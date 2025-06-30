@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThmdPlayer", "ThmdPlayer.csproj", "{DC2E52C7-A363-4040-97BE-2305B7AFCD4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThmdPlayer.Core", "..\ThmdPlayer.Core\ThmdPlayer.Core.csproj", "{540345C0-E860-4722-B326-944AD161ABB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThmdPlayer.Core", "thmdplayer.core\ThmdPlayer.Core.csproj", "{540345C0-E860-4722-B326-944AD161ABB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

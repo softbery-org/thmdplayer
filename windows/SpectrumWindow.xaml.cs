@@ -1,4 +1,5 @@
-﻿using System;
+// Version: 0.1.0.0
+using System;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media;

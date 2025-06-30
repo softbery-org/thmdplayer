@@ -1,4 +1,4 @@
-// Version: 1.0.0.134
+// Version: 1.0.0.135
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using ThmdPlayer.Core;
-using ThmdPlayer.Core.Logs;
+using ThmdPlayer.Core.logs;
 
 namespace ThmdPlayer.windows
 {
@@ -26,11 +26,11 @@ namespace ThmdPlayer.windows
 
         public MainWindow()
         {
-            App.AddLog(LogLevel.Info, "Starting application.");
+            Logger.Log.Log(LogLevel.Info, new string[] { "File", "Console"}, "Starting application.");
 
             _shortcutsTab = new Rectangle
             {
-                Fill = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)), // Transparentny czarny ustawiono w aRGB: przeŸroczystoœæ: 32%; rgb: 0,0,0 czerñ
+                Fill = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)), // Transparentny czarny ustawiono w aRGB: przeï¿½roczystoï¿½ï¿½: 32%; rgb: 0,0,0 czerï¿½
                 Width = 200,
                 Height = 200,
                 Visibility = Visibility.Collapsed
@@ -38,7 +38,7 @@ namespace ThmdPlayer.windows
 
             _spectrumCanvas = new Canvas
             {
-                Background = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)), // Transparentny czarny ustawiono w aRGB: przeŸroczystoœæ: 32%; rgb: 0,0,0 czerñ
+                Background = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)), // Transparentny czarny ustawiono w aRGB: przeï¿½roczystoï¿½ï¿½: 32%; rgb: 0,0,0 czerï¿½
                 Width = 200,
                 Height = 200,
                 Visibility = Visibility.Collapsed
@@ -76,7 +76,7 @@ namespace ThmdPlayer.windows
                 settingsWindow.Owner = this;
                 settingsWindow.ShowDialog();
                 var grid = new Grid();
-                grid.Background = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)); // Transparentny czarny ustawiono w aRGB: przeŸroczystoœæ: 32%; rgb: 0,0,0 czerñ
+                grid.Background = new SolidColorBrush(Color.FromArgb(32, 0, 0, 0)); // Transparentny czarny ustawiono w aRGB: przeï¿½roczystoï¿½ï¿½: 32%; rgb: 0,0,0 czerï¿½
             };
 
             _player.ControlBar.BtnUpdate.Click += (s, e) =>
@@ -105,7 +105,7 @@ namespace ThmdPlayer.windows
         {
             try
             {
-                App.Logger.Log(LogLevel.Info, new string[] { "File", "Console" }, $"Closing player.");
+                Logger.Log.Log(LogLevel.Info, new string[] { "File", "Console" }, $"Closing player.");
 
                 cancellationTokenSource.ThrowIfCancellationRequested();
                 try
